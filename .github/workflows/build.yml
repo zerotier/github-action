@@ -1,29 +1,29 @@
-name: zerotier
-on: [ push ]
+# name: zerotier
+# on: [ push ]
 
-jobs:
-  build:
-    strategy:
-      matrix:
-        os: [ ubuntu-latest, macos-latest, windows-latest ]
-    runs-on: ${{ matrix.os }}
-    steps:
-      - name: checkout
-        uses: actions/checkout@v3.2.0
+# jobs:
+#   build:
+#     strategy:
+#       matrix:
+#         os: [ ubuntu-latest, macos-latest, windows-latest ]
+#     runs-on: ${{ matrix.os }}
+#     steps:
+#       - name: checkout
+#         uses: actions/checkout@v3.2.0
           
-      - name: zerotier
-        uses: ./
-        with:
-          network_id: ${{ secrets.ZEROTIER_NETWORK_ID }}
-          auth_token: ${{ secrets.ZEROTIER_CENTRAL_TOKEN }}
+#       - name: zerotier
+#         uses: ./
+#         with:
+#           network_id: ${{ secrets.ZEROTIER_NETWORK_ID }}
+#           auth_token: ${{ secrets.ZEROTIER_CENTRAL_TOKEN }}
           
-      - name: ping host
-        shell: bash
-        run: |
-          count=10
-          while ! ping -c 1 ${{ secrets.ZEROTIER_HOST_IP }} ; do
-            echo "waiting..." ;
-            sleep 1 ;
-            let count=count-1
-          done
-          echo "ping success"
+#       - name: ping host
+#         shell: bash
+#         run: |
+#           count=10
+#           while ! ping -c 1 ${{ secrets.ZEROTIER_HOST_IP }} ; do
+#             echo "waiting..." ;
+#             sleep 1 ;
+#             let count=count-1
+#           done
+#           echo "ping success"
