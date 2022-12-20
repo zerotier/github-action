@@ -10,7 +10,6 @@ The ZeroTier Github Action allows users to easily integrate
 ZeroTier into their Github workflow by temporarily joining and
 authorizing workflow runner onto a private ZeroTier network.
 
-----
 ## Usage
 
 ```
