@@ -46,5 +46,5 @@ It then uses the supplied `auth_token` to authorize the runner onto the network.
     echo "ping success"
 ```
 
-This action uses a Post step to deauthorize the runner at the end of
-the job.
+After the workflow has completed, a `post` step automatically cleans
+up by removing the runner from the network.
