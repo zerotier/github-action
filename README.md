@@ -3,12 +3,12 @@
 ZeroTier is an SDN platform that allows users to create virtual
 networks that can span multiple devices, locations, and cloud
 providers. ZeroTier creates an encrypted peer-to-peer mesh overlay
-network that handles NAT traversal, authentication, and authorization
-to network resources.
+network that handles NAT traversal and authentication to network
+resources.
 
 The ZeroTier Github Action allows users to easily integrate
-ZeroTier into their Github workflow by temporarily joining and
-authorizing workflow runner onto a private ZeroTier network.
+ZeroTier into their CI/CD workflows by temporarily joining and
+authorizing runners onto private ZeroTier networks.
 
 ```yaml
 - name: ZeroTier
