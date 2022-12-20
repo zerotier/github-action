@@ -27,6 +27,24 @@ This Action works on Ubuntu, MacOS, and Windows runners.
 This action installs ZeroTier on the runner node and generates a unique ZeroTier identity.  
 It then uses the supplied `auth_token` to authorize the runner onto the network.
 
+```
+- name: ZeroTier
+  uses: zerotier/github-action@v1
+  with:
+    network_id: ${{ secrets.ZEROTIER_NETWORK_ID }}
+    auth_token: ${{ secrets.ZEROTIER_CENTRAL_TOKEN }}
+    
+- name: ping host
+  shell: bash
+  run: |
+    count=10
+    while ! ping -c 1 ${{ secrets.ZEROTIER_HOST_IP }} ; do
+      echo "waiting..." ;
+      sleep 1 ;
+      let count=count-1
+    done
+    echo "ping success"
+```
 
 This action uses a Post step to deauthorize the runner at the end of
 the job.
