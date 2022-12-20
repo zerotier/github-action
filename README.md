@@ -24,11 +24,10 @@ This Action works on Ubuntu, MacOS, and Windows runners.
 
 ----
 
-This action works by installing ZeroTier on the runner node,
-generating a unique ZeroTier identity. 
+This action installs ZeroTier on the runner node and generates a unique ZeroTier identity.
+It then uses the supplied `auth_token` to authorize the runner onto the network.
 
-Next, it authorizes that identity to the ZeroTier network by making an
-API call to ZeroTier Central, authenticating with the `auth_token`.
+
 
 This action uses a Post step to deauthorize the runner at the end of
 the job.
