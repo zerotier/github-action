@@ -1,10 +1,12 @@
 # ZeroTier GitHub Action
 
-ZeroTier is a software-defined networking (SDN) platform that allows
-users to create virtual networks that can span multiple devices,
-locations, and cloud providers. The ZeroTier Github Action allows
-users to easily integrate ZeroTier into their Github workflow by
-temporarily authorizing the runner onto a private ZeroTier network.
+ZeroTier is an SDN platform that allows users to create virtual
+networks that can span multiple devices, locations, and cloud
+providers.
+
+The ZeroTier Github Action allows users to easily integrate
+ZeroTier into their Github workflow by temporarily authorizing the
+runner onto a private ZeroTier network.
 
 ```
 - name: ZeroTier
