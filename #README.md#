@@ -28,5 +28,7 @@ This action works by installing ZeroTier on the runner node,
 generating an identity, then making an API call to ZeroTier central to
 authenticate the runner onto the specified network.
 
+
+
 This action uses a Post step to deauthorize the runner at the end of
 the job.
