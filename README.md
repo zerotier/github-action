@@ -10,7 +10,7 @@ The ZeroTier Github Action allows users to easily integrate
 ZeroTier into their Github workflow by temporarily joining and
 authorizing workflow runner onto a private ZeroTier network.
 
-```
+```yaml
 - name: ZeroTier
   uses: zerotier/github-action@v1
   with:
@@ -27,7 +27,7 @@ This Action works on Ubuntu, MacOS, and Windows runners.
 This action installs ZeroTier on the runner node and generates a unique ZeroTier identity.  
 It then uses the supplied `auth_token` to authorize the runner onto the network.
 
-```
+```yaml
 - name: ZeroTier
   uses: zerotier/github-action@v1
   with:
