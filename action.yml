@@ -33,7 +33,7 @@ runs:
 
           case $(uname -s) in
             MINGW64_NT?*)
-              pwsh ${{ github.action_path }}/util/install.ps1
+              pwsh "${{ github.action_path }}/util/install.ps1"
               ztcli="/c/Program Files (x86)/ZeroTier/One/zerotier-cli.bat"
               member_id=$("${ztcli}" info | awk '{ print $3 }')
               ;;
