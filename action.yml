@@ -23,7 +23,7 @@ runs:
   using: 'composite'
   steps:
     - name: zerotier
-      uses: ./util/post
+      uses: zerotier/github-action/util/post@main
       with:
         main: |
           set -euo pipefail
@@ -33,12 +33,12 @@ runs:
 
           case $(uname -s) in
             MINGW64_NT?*)
-              pwsh ./util/install.ps1
+              pwsh "${{ github.action_path }}/util/install.ps1"
               ztcli="/c/Program Files (x86)/ZeroTier/One/zerotier-cli.bat"
               member_id=$("${ztcli}" info | awk '{ print $3 }')
               ;;
             *)
-              . ./util/install.sh &>/dev/null
+              . ${{ github.action_path }}/util/install.sh &>/dev/null
               member_id=$(sudo zerotier-cli info | awk '{ print $3 }')
             ;;
           esac
