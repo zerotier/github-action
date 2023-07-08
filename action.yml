@@ -44,7 +44,7 @@ runs:
           esac
 
           echo "⏁  Authorizing Runner to ZeroTier network"
-          curl -s -X POST -H "Authorization: token ${{ inputs.auth_token }}" -d '{"config":{"authorized":true}}' "${{ inputs.api_url }}/network/${{ inputs.network_id }}/member/${member_id}"
+          while ! curl -s -X POST -H "Authorization: token ${{ inputs.auth_token }}" -H "Content-Type: application/json" -d '{"config":{"authorized":true}}' "${{ inputs.api_url }}/network/${{ inputs.network_id }}/member/${member_id}" | grep '"authorized":true' ; do sleep 2 ; done
 
           echo "⏁  Joining ZeroTier Network ID: ${{ inputs.network_id }}"
           case $(uname -s) in
