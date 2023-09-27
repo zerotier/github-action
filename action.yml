@@ -77,10 +77,9 @@ runs:
           STATUS_CODE=$(cat /tmp/api_delete_output.txt | grep 'HTTP/' | awk '{print $2}')
 
           if [[ $STATUS_CODE -ge 400 && $STATUS_CODE -le 599 ]]; then
-              echo "Error! Status code: $STATUS_CODE"
-              echo "Response: $(cat /tmp/api_delete_output.txt)"
+              echo "ERROR: Status code: $STATUS_CODE"
+              echo -e "Complete server response:\n$(cat /tmp/api_delete_output.txt)\n"
               exit $STATUS_CODE
-          
           else
               echo "Success! Status code: $STATUS_CODE"
               exit 0
