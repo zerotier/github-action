@@ -44,7 +44,7 @@ runs:
           esac
 
           echo "⏁  Authorizing Runner to ZeroTier network"
-          while ! curl -s -X POST -H "Authorization: token ${{ inputs.auth_token }}" -H "Content-Type: application/json" -d '{"config":{"authorized":true}}' "${{ inputs.api_url }}/network/${{ inputs.network_id }}/member/${member_id}" | grep '"authorized":true' ; do sleep 2 ; done
+          while ! curl -s -X POST -H "Authorization: token ${{ inputs.auth_token }}" -H "Content-Type: application/json" -d '{"name":"Zerotier GitHub Member '"${GITHUB_SHA::7}"'", "description": "Member created by '"${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"'", "config":{"authorized":true}}' "${{ inputs.api_url }}/network/${{ inputs.network_id }}/member/${member_id}" | grep '"authorized":true' ; do sleep 2 ; done
 
           echo "⏁  Joining ZeroTier Network ID: ${{ inputs.network_id }}"
           case $(uname -s) in
