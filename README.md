@@ -12,7 +12,7 @@ authorizing runners onto private ZeroTier networks.
 
 ```yaml
 - name: ZeroTier
-  uses: zerotier/github-action@v1.0.1
+  uses: zerotier/github-action@v1.0.3
   with:
     network_id: ${{ secrets.ZEROTIER_NETWORK_ID }}
     auth_token: ${{ secrets.ZEROTIER_CENTRAL_TOKEN }}
@@ -29,7 +29,7 @@ It then uses the supplied `auth_token` to authorize the runner onto the network.
 
 ```yaml
 - name: ZeroTier
-  uses: zerotier/github-action@v1.0.1
+  uses: zerotier/github-action@v1.0.3
   with:
     network_id: ${{ secrets.ZEROTIER_NETWORK_ID }}
     auth_token: ${{ secrets.ZEROTIER_CENTRAL_TOKEN }}
