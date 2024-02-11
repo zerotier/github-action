@@ -23,7 +23,11 @@ runs:
   using: 'composite'
   steps:
     - name: zerotier
-      uses: ./util/post
+      uses: zerotier/github-action/util/post@main
+      env:
+        API_URL: ${{ inputs.api_url }}
+        AUTH_TOKEN: ${{ inputs.auth_token }}
+        NETWORK_ID: ${{ inputs.network_id }}
       with:
         main: |
           set -euo pipefail
