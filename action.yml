@@ -23,7 +23,7 @@ runs:
   using: 'composite'
   steps:
     - name: zerotier
-      uses: zerotier/github-action/util/post@main
+      uses: ./util/post
       with:
         main: |
           set -euo pipefail
