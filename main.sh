@@ -47,3 +47,4 @@ MINGW64_NT?*)
   while ! sudo zerotier-cli listnetworks | grep $NETWORK_ID | grep OK; do sleep 0.5; done
   ;;
 esac
+
