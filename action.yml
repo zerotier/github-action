@@ -1,8 +1,8 @@
 name: "ZeroTier"
 description: "Connect your Github Action workflow to ZeroTier"
 branding:
-  icon: 'globe'
-  color: 'gray-dark'
+  icon: "globe"
+  color: "gray-dark"
 
 on:
   workflow_call:
@@ -20,7 +20,7 @@ inputs:
     default: "https://my.zerotier.com/api/v1"
 
 runs:
-  using: 'composite'
+  using: "composite"
   steps:
     - name: zerotier
       uses: zerotier/github-action/util/post@main
@@ -29,5 +29,5 @@ runs:
         AUTH_TOKEN: ${{ inputs.auth_token }}
         NETWORK_ID: ${{ inputs.network_id }}
       with:
-        main: ./main.sh
-        post: ./post.sh
+        main: $GITHUB_ACTION_PATH/main.sh
+        post: $GITHUB_ACTION_PATH/post.sh
